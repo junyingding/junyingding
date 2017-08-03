@@ -1,0 +1,279 @@
+@charset "UTF-8";
+/* Some mixins */
+/* Basic style for some HTML elements */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: #F8F8F8; }
+
+footer {
+  margin: 1rem 0; }
+  footer.center.aligned p {
+    text-align: center; }
+  footer.ui.vertical.segment {
+    padding: 1.6rem 0; }
+
+.social-share {
+  margin-top: -0.4rem;
+  margin-bottom: 0.5rem; }
+  .social-share .social-share-icon {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    height: 1.5rem;
+    width: 1.5rem; }
+
+ul,
+ol {
+  padding-left: 2rem; }
+
+aside .content ul.ui.list {
+  padding-top: 0.3rem;
+  padding-left: 0; }
+
+p {
+  line-height: 1.5rem; }
+  [lang='cn'] p {
+    text-align: justify; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-bottom: 3px double #EEE;
+  margin: 1rem 0;
+  padding: 0; }
+  hr.plain {
+    border-bottom: 1px solid #DDD; }
+
+/* blockquote styles comes from bootstrap */
+blockquote {
+  padding: 0.6rem 1rem 0.4rem;
+  margin: 0 0 0.8rem;
+  border-left: 3px solid #eee; }
+  blockquote p {
+    line-height: 1.2rem;
+    margin-bottom: 0.3rem;
+    text-align: start !important; }
+    blockquote p:last-child {
+      margin-bottom: 0; }
+  blockquote ul:last-child,
+  blockquote ol:last-child {
+    margin-bottom: 0; }
+  blockquote footer,
+  blockquote small,
+  blockquote .small {
+    margin-bottom: 0.5rem;
+    display: block;
+    font-size: 80%;
+    line-height: 1.42857;
+    color: #999;
+    padding: 0; }
+  blockquote footer:before,
+  blockquote small:before,
+  blockquote .small:before {
+    content: "— "; }
+  blockquote cite:before {
+    content: "«"; }
+  blockquote cite:after {
+    content: "»"; }
+
+img {
+  width: 100%; }
+  img.logo {
+    width: 200px;
+    margin: 3rem 0 1rem; }
+
+.ui.menu {
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: 0; }
+  .ui.menu form {
+    font-size: 14px; }
+  .ui.menu input {
+    font-size: 14px; }
+
+.ui.progress {
+  margin: 1rem 0; }
+  .ui.progress .ui.label {
+    font-size: 0.8rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.2rem; }
+
+.ui.article.segment {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.65);
+  margin: 1.5rem 0 2.5rem 0;
+  padding-top: 2rem;
+  width: 100%; }
+
+.article-body h1:first,
+.article-body h2:first,
+.article-body h3:first,
+.article-body h4:first,
+.article-body h5:first,
+.article-body h6:first {
+  margin-top: 0; }
+
+#topnav {
+  border-bottom: none; }
+  #topnav .ui.grid .row .item {
+    padding: 0.75em 1.25em 0.45em 0.75em; }
+
+.ui.sticky.menu {
+  margin: 0;
+  border-top: none; }
+
+nav.ui.menu .ui.dropdown.item a {
+  color: #000; }
+
+.ui.items > .item > .content > .description {
+  color: rgba(0, 0, 0, 0.68); }
+
+@media only screen and (max-width: 768px) {
+  .desktop-only {
+    display: none; }
+
+  .ui.menu .item.desktop-only {
+    display: none; }
+
+  .ui[class*="padded"].segment {
+    padding: 1.5rem; }
+
+  .ui.grid .ui.stackable.grid {
+    margin-left: 0 !important;
+    margin-right: 0 !important; }
+
+  #first-row {
+    margin-top: 4em; }
+
+  #topnav {
+    display: none; }
+
+  .ui.sticky.menu {
+    display: none; }
+
+  #home-images .ui.grid > .row > .column {
+    padding-left: 0;
+    padding-right: 0; } }
+@media only screen and (min-width: 769px) {
+  #first-row {
+    margin-top: 1px; }
+
+  .tablet.mobile.only.menu {
+    display: none; } }
+.tablet.mobile.only.menu .row .ui.vertical.menu {
+  display: none;
+  border: none;
+  box-shadow: none; }
+  .tablet.mobile.only.menu .row .ui.vertical.menu .item .title .dropdownd.icon {
+    float: none; }
+
+#article .ui.medium.spaced.image {
+  margin: 10px 10px 0px 10px; }
+
+#article .ui.image > .ui.attached.label {
+  text-align: center;
+  border: none;
+  border-radius: 0; }
+
+#dimmer.ui.image {
+  padding: 4px; }
+  #dimmer.ui.image a {
+    color: #e6e6e6; }
+  #dimmer.ui.image a:hover {
+    cursor: pointer; }
+
+#doc.ui.accordion {
+  box-shadow: none; }
+  #doc.ui.accordion .content .list .item .content {
+    padding: 0.5em 1.5em; }
+
+#qa {
+  box-shadow: none; }
+  #qa .title {
+    border: none;
+    margin-bottom: 0;
+    padding-bottom: 0; }
+  #qa .content .accordion {
+    box-shadow: none; }
+  #qa > .content {
+    padding-top: 0;
+    padding-bottom: 0.6rem; }
+
+#qa .accordion .content {
+  padding: 0.5em 2.5em; }
+
+#qa > .content > .accordion {
+  margin-top: 0; }
+
+#jobs {
+  box-shadow: none; }
+  #jobs .content {
+    padding: 0.5em 2.5em; }
+  #jobs .title {
+    border: none; }
+
+#home-images {
+  padding: 0; }
+  #home-images .ui.container.grid .row:first-child {
+    padding-bottom: 0.5rem; }
+  #home-images .ui.container.grid .row:last-child {
+    padding-top: 0.5rem;
+    padding-bottom: 0; }
+  #home-images .ui.container.grid .two.column.row .column:first-child {
+    padding-right: 0.5rem; }
+  #home-images .ui.container.grid .two.column.row .column:last-child {
+    padding-left: 0.5rem; }
+  #home-images .ui.small.image {
+    width: 185px !important; }
+  #home-images .ui.medium.image {
+    width: 400px !important; }
+  #home-images .ui.button a {
+    color: #e6e6e6; }
+  #home-images .ui.attached.button {
+    height: 2.3em;
+    margin-top: -2.3em;
+    background: transparent;
+    border: none;
+    box-shadow: none !important; }
+
+#cards .ui.link.card {
+  background: transparent;
+  border: none;
+  box-shadow: none; }
+  #cards .ui.link.card:hover {
+    transform: none; }
+  #cards .ui.link.card .content {
+    padding: 1em 0; }
+
+.ui.map.container {
+  margin: 0 !important; }
+
+#map-wrapper {
+  position: relative;
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 26rem; }
+
+#map-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+p.narrow {
+  margin: 0 0.5em 0; }
+
+#solutions .ui.items .item .ui.image {
+  width: 11rem; }
+
+#cards .ui.card a.description {
+  color: rgba(0, 0, 0, 0.68); }
+
+#cards .column .ui.card .ui.item {
+  max-height: 6rem; }
+
+footer.ui.inverted.footer.segment {
+  margin-top: 3em; }

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no" name="viewport" />
+    <meta content="北京控之星自动化技术有限公司自建立之初就定位于为能源领域的用户提供基于世界顶级产品和服务的自动化解决方案，特别是石油化工和发电领域的动力设备控制系统，范围涵盖汽轮机，燃气轮机，水轮机及压缩机，往复式内燃机的控制和保护。" name="description" />
+    <meta content="Constar, Automation, 石油, 化工, 发电" name="keywords" />
+    <meta content="Constar" name="author" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>北京控之星自动化技术有限公司</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/swiper/css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/share/css/share.min.css" rel="stylesheet" />
+    <link href="/static/stylesheets/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheets/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
+  </head>
+  <body lang="zh">
+    <div id="content">
+      <nav class="ui borderless menu" id="topnav">
+        <div class="ui container grid">
+          <div class="row">
+            <a class="item" href="/zh/">
+              <div class="ui image">
+                <img src="/static/logo/gravatar/logo_zh.png" />
+              </div>
+            </a>
+            <div class="right menu">
+              <div class="item">
+                <a href="/zh"><i class="china flag"></i></a><a href="/en"><i class="united kingdom flag"></i></a>
+              </div>
+              <div class="item">
+                <div class="ui right icon input" id="search">
+                  <input name="search" placeholder="Search..." type="text" /><i class="search icon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script>
+        $('input[name="search"]').keydown(function(e) {
+          if (e.keyCode == 13) {
+            var input = document.querySelector('input[name="search"]');
+            window.location.href = "https://www.baidu.com/s?wd=site%3Awww.constar.com.cn%20" + input.value;
+          }
+        });
+      </script>
+      <nav class="ui borderless menu computer only sticky">
+        <div class="ui container grid">
+          <div class="row">
+            <a class="item" href="/zh" id="nav-home">主页</a>
+            <div class="ui pointing dropdown item" id="nav-intro">
+              <a href="/zh/intro">我们是谁</a><i class="down angle icon"></i>
+              <div class="menu">
+                <a class="item" href="/zh/intro/who">我们是谁</a><a class="item" href="/zh/intro/contact">联系我们</a>
+              </div>
+            </div>
+            <div class="ui pointing dropdown item" id="nav-solutions">
+              <a href="/zh/solutions">解决方案</a><i class="down angle icon"></i>
+              <div class="menu">
+                <a class="item" href="/zh/solutions/steam">汽轮机控制</a><a class="item" href="/zh/solutions/gas">燃气轮机控制</a><a class="item" href="/zh/solutions/compressor">压缩机控制及 ITCC</a><a class="item" href="/zh/solutions/ets">机组保护（ETS/ESD/SIS）</a><a class="item" href="/zh/solutions/engine">内燃机控制</a><a class="item" href="/zh/solutions/hydro">水轮机控制</a>
+              </div>
+            </div>
+            <div class="ui pointing dropdown item" id="nav-services">
+              <a href="/zh/services">工程及服务</a><i class="down angle icon"></i>
+              <div class="menu">
+                <a class="item" href="/zh/services/projects">工程项目</a><a class="item" href="/zh/services/service">技术服务</a><a class="item" href="/zh/services/consulting">技术咨询</a><a class="item" href="/zh/services/training">培训课程</a><a class="item" href="/zh/services/repair">产品维修</a><a class="item" href="/zh/services/spares">备件支持</a>
+              </div>
+            </div>
+            <div class="ui pointing dropdown item" id="nav-support">
+              <a href="/zh/support">技术支持</a><i class="down angle icon"></i>
+              <div class="menu">
+                <a class="item" href="/zh/support/doc">文档下载</a><a class="item" href="/zh/support/qa">技术问答</a><a class="item" href="http://www.controlbbs.com/" target="view_window">技术论坛</a><a class="item" href="/zh/support/contact">联系我们</a>
+              </div>
+            </div>
+            <a class="item" href="/zh/case" id="nav-case">项目案例</a><a class="item" href="http://www.controlbbs.com/" target="view_window">技术论坛</a><a class="item" href="/zh/join" id="nav-join">加入我们</a>
+          </div>
+        </div>
+      </nav>
+      <nav class="ui borderless fixed menu tablet mobile only">
+        <div class="ui container grid">
+          <div class="row">
+            <a class="item" href="/zh/">
+              <div class="ui image">
+                <img src="/static/logo/gravatar/logo_zh.png" />
+              </div>
+            </a>
+            <div class="right menu">
+              <a class="menu item">
+                <div class="ui basic icon toggle button">
+                  <i class="content icon"></i>
+                </div>
+              </a>
+            </div>
+            <div class="ui vertical accordion borderless fluid menu">
+              <a class="item" href="/">主页</a>
+              <div class="item">
+                <div class="title">
+                  我们是谁<i class="dropdown icon"></i>
+                </div>
+                <div class="content">
+                  <a class="item" href="/zh/intro/who">我们是谁</a><a class="item" href="/zh/intro/contact">联系我们</a>
+                </div>
+              </div>
+              <div class="item">
+                <div class="title">
+                  解决方案<i class="dropdown icon"></i>
+                </div>
+                <div class="content">
+                  <a class="item" href="/zh/solutions/steam">汽轮机控制</a><a class="item" href="/zh/solutions/gas">燃气轮机控制</a><a class="item" href="/zh/solutions/compressor">压缩机控制及 ITCC</a><a class="item" href="/zh/solutions/ets">机组保护 (ETS/ESD/SIS)</a><a class="item" href="/zh/solutions/engine">内燃机控制</a><a class="item" href="/zh/solutions/hydro">水轮机控制</a>
+                </div>
+              </div>
+              <div class="item">
+                <div class="title">
+                  工程及服务<i class="dropdown icon"></i>
+                </div>
+                <div class="content">
+                  <a class="item" href="/zh/services/projects">工程项目</a><a class="item" href="/zh/services/service">技术服务</a><a class="item" href="/zh/services/consulting">技术咨询</a><a class="item" href="/zh/services/training">培训课程</a><a class="item" href="/zh/services/repair">产品维修</a><a class="item" href="/zh/services/spares">备件支持</a>
+                </div>
+              </div>
+              <div class="item">
+                <div class="title">
+                  技术支持<i class="dropdown icon"></i>
+                </div>
+                <div class="content">
+                  <a class="item" href="/zh/support/doc">文档下载</a><a class="item" href="/zh/support/qa">技术问答</a><a class="item" href="http://www.controlbbs.com/">技术论坛</a><a class="item" href="/zh/support/contact">联系我们</a>
+                </div>
+              </div>
+              <a class="item" href="/zh/case">项目案例</a><a class="item" href="http://www.controlbbs.com/">技术论坛</a><a class="item" href="/zh/join">加入我们</a>
+              <div class="item">
+                <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                  <input name="q" type="hidden" value="site:http://www.constar.com.cn" />
+                  <div class="ui transparent left icon input">
+                    <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                  </div>
+                </form>
+              </div>
+              <div class="item">
+                <a href="/zh"><i class="china flag"></i></a><a href="/en"><i class="united kingdom flag"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script>
+        $(document).ready(function() {
+          // Make the text link in dropdown item itself clickable
+          $('.ui.dropdown').dropdown({
+            on: 'hover'
+          });
+        
+          $('.ui.accordion').accordion();
+        
+          // bind "hide and show vertical menu" event to top right icon button
+          $('.ui.toggle.button').click(function() {
+            $('.ui.vertical.menu').toggle("250", "linear")
+          });
+        
+          $('.ui.sticky').sticky({
+            context: '#content'
+          });
+        });
+      </script><div class="ui stackable container grid" id="first-row">
+        <div class="row">
+          <div class="eleven wide column">
+            <div class="ui vertical center aligned stripe alternative segment" id="slides">
+              <div class="ui container">
+                <div class="swiper-container">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="ui fluid image">
+                        <img src="/static/images/zh/slides/1.jpg" />
+                        <div class="ui bottom attached inverted segment">
+                          <a href="/zh/case">仪征四号双抽热电联产机组 DEH 项目</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="ui fluid image">
+                        <img src="/static/images/zh/slides/2.jpg" />
+                        <div class="ui bottom attached inverted segment">
+                          <a href="/zh/case">鞍钢十五号机组汽轮机鼓风机综合控制系统</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="ui fluid image">
+                        <img src="/static/images/zh/slides/3.jpg" />
+                        <div class="ui bottom attached inverted segment">
+                          <a href="/zh/case">新浦化学（泰兴）热电联产机组 DEH 系统</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="ui fluid image">
+                        <img src="/static/images/zh/slides/4.jpg" />
+                        <div class="ui bottom attached inverted segment">
+                          <a href="/zh/case">海南福岛 Micronet/ITCC 系统维护</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="ui fluid image">
+                        <img src="/static/images/zh/slides/5.jpg" />
+                        <div class="ui bottom attached inverted segment">
+                          <a href="/zh/case">丽东化工压缩机族控制系统 </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-button-prev swiper-button-white"></div>
+                  <div class="swiper-button-next swiper-button-white"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="five wide column" id="home-images">
+            <div class="ui container grid">
+              <div class="two column row">
+                <div class="column">
+                  <div class="ui small fluid image" href="/zh/services/consulting">
+                    <div class="ui dimmer">
+                      <div class="content">
+                        <div class="center">
+                          <label class="ui blue circular medium label"><a href="/zh/services/consulting" style="font-weight:normal">技术咨询</a></label>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="/static/images/zh/homepage/consulting.png" />
+                  </div>
+                  <div class="ui bottom attached mini button">
+                    <a href="/zh/services/consulting" style="font-weight:normal">技术咨询</a>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui small fluid image" href="/zh/services/repair">
+                    <div class="ui dimmer">
+                      <div class="content">
+                        <div class="center">
+                          <label class="ui blue circular label"><a href="/zh/services/repair" style="font-weight:normal">检测与维修</a></label>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="/static/images/zh/homepage/repair.png" />
+                  </div>
+                  <div class="ui bottom attached mini button">
+                    <a href="/zh/services/repair" style="font-weight:normal">检测与维修</a>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="column">
+                  <div class="ui medium fluid image" href="/zh/services/training">
+                    <div class="ui dimmer">
+                      <div class="content">
+                        <div class="center">
+                          <label class="ui blue circular label"><a href="/zh/services/training" style="font-weight:normal">技术培训</a></label>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="/static/images/zh/homepage/training.png" />
+                  </div>
+                  <div class="ui bottom attached mini button">
+                    <a href="/zh/services/training" style="font-weight:normal">技术培训</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui stackable container grid" id="solutions">
+        <div class="eleven wide column">
+          <div class="ui stackable grid">
+            <div class="row">
+              <div class="column">
+                <a class="item" href="/zh/solutions">
+                  <h3 class="ui dividing header">
+                    解决方案
+                  </h3>
+                </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="six wide column">
+                <div class="ui fluid card" id="single-card">
+                  <div class="ui image" href="/zh/solutions/steam">
+                    <div class="ui dimmer">
+                      <div class="content">
+                        <div class="center">
+                          <label class="ui blue circular label"><a href="/zh/solutions/steam" style="font-weight:normal">汽轮机控制</a></label>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="/static/images/zh/solution/steam/homepage_steam.jpg" />
+                  </div>
+                  <div class="content">
+                    <h5 class="ui header">
+                      <a href="/zh/solutions/steam">汽轮机控制</a>
+                    </h5>
+                    <div class="description">
+                      汽轮机（蒸汽轮机）是目前发电领域和石化行业的主要动力设备, 机组控制系统直接关系到电力和石油化工生产的性能和可靠性。控之星自动化在将近二十的汽轮机控制工程实践中积累了丰富的理论和实践经验，特别是<a href="/zh/solutions/steam"><i class="right floated right angle double blue icon"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ten wide column">
+                <div class="ui link items">
+                  <div class="item">
+                    <div class="ui image">
+                      <div class="ui dimmer">
+                        <div class="content">
+                          <div class="center">
+                            <label class="ui blue circular label"><a href="/zh/solutions/gas" style="font-weight:normal">燃气轮机控制</a></label>
+                          </div>
+                        </div>
+                      </div>
+                      <img src="/static/images/zh/solution/gas/homepage_gas.png" />
+                    </div>
+                    <a class="content" href="/zh/solutions/gas">
+                      <h5 class="ui header">
+                        燃气轮机控制
+                      </h5>
+                      <div class="description">
+                        燃气轮机具有功率密度大启动速度快, 效率高等优点, 同时, 燃气轮机对设计。<i class="right floated right angle double blue icon"></i>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <div class="ui image">
+                      <div class="ui dimmer">
+                        <div class="content">
+                          <div class="center">
+                            <label class="ui blue circular label"><a href="/zh/solutions/compressor" style="font-weight:normal">压缩机控制及 ITCC</a></label>
+                          </div>
+                        </div>
+                      </div>
+                      <img src="/static/images/zh/solution/compressor/homepage_compressor.jpg" />
+                    </div>
+                    <a class="content" href="/zh/solutions/compressor">
+                      <h5 class="ui header">
+                        压缩机控制及 ITCC
+                      </h5>
+                      <div class="description">
+                        压缩机/鼓风机是石油化工和钢铁行业的心脏，防喘控制更是生产工艺的。<i class="right floated right angle double blue icon"></i>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <div class="ui image">
+                      <div class="ui dimmer">
+                        <div class="content">
+                          <div class="center">
+                            <label class="ui blue circular label"><a href="/zh/solutions/ets" style="font-weight:normal">机组保护</a></label>
+                          </div>
+                        </div>
+                      </div>
+                      <img src="/static/images/zh/solution/protection/homepage_protection.jpg" />
+                    </div>
+                    <a class="content" href="/zh/solutions/ets">
+                      <h5 class="ui header">
+                        机组保护（ETS/ESD/SIS）
+                      </h5>
+                      <div class="description">
+                        机组保护是发电领域和石化行业的重要安全设备, 控之星自动化提供从项目咨询、方案确定<i class="right floated right angle double blue icon"></i>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="three column row" id="cards">
+              <div class="column">
+                <div class="ui link doubling fluid card">
+                  <div class="ui item">
+                    <div class="content">
+                      <h3 class="ui dividing header">
+                        工程及服务
+                      </h3>
+                      <div class="ui image">
+                        <div class="ui dimmer">
+                          <div class="content">
+                            <div class="center">
+                              <label class="ui blue circular label"><a href="/zh/services" style="font-weight:normal">工程及服务</a></label>
+                            </div>
+                          </div>
+                        </div>
+                        <img src="/static/images/zh/project_service/service/profile/shijiazhuang_unit1.JPG" />
+                      </div>
+                    </div>
+                    <a class="description" href="/zh/services">提供完整的能源动力设备控制工程项目和及时有力的技术服务<i class="right floated right angle double blue icon"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="ui link doubling fluid card">
+                  <div class="ui item">
+                    <div class="content">
+                      <h3 class="ui dividing header">
+                        项目案例
+                      </h3>
+                      <div class="ui image" href="/zh/case">
+                        <div class="ui dimmer">
+                          <div class="content">
+                            <div class="center">
+                              <label class="ui blue circular label"><a href="/zh/case" style="font-weight:normal">项目案例</a></label>
+                            </div>
+                          </div>
+                        </div>
+                        <img src="/static/images/zh/project_service/service/profile/xinpu_unit3_test.jpg" />
+                      </div>
+                    </div>
+                    <a class="description" href="/zh/case">数十台旋转动力设备控制系统项目为控之星赢得了国内外用户<i class="right floated right angle double blue icon"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="ui link card">
+                  <div class="ui item" id="test-item">
+                    <div class="content">
+                      <h3 class="ui dividing header">
+                        技术支持
+                      </h3>
+                      <div class="ui image" href="/zh/support">
+                        <div class="ui dimmer">
+                          <div class="content">
+                            <div class="center">
+                              <label class="ui blue circular label"><a href="/zh/support" style="font-weight:normal">技术支持</a></label>
+                            </div>
+                          </div>
+                        </div>
+                        <img src="/static/images/zh/project_service/service/profile/xinpu_unit3.jpg" />
+                      </div>
+                    </div>
+                    <a class="description" href="/zh/support">控之星提供技术论坛、资料下载、电话及现场服务等多种方式<i class="right floated right angle double blue icon"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="five wide column" id="quotes">
+          <div class="ui bordered image" href="/zh/support/doc">
+            <div class="ui dimmer">
+              <div class="content">
+                <div class="center">
+                  <label class="ui blue circular medium label"><a href="/zh/support/doc" style="font-weight:normal">文档下载</a></label>
+                </div>
+              </div>
+            </div>
+            <img src="/static/images/zh/homepage/doc.png" />
+          </div>
+          <h3 class="ui dividing header">
+            用户反馈
+          </h3>
+          <div class="ui basic segment">
+            <blockquote>控之星的工程师多年来如一日给予我们有力的技术支持，是我们的两台机组安全平稳运行十多年的重要原因<small>中石化金陵石化汽机主任 朱兵</small></blockquote>
+          </div>
+          <div class="ui basic segment">
+            <blockquote>控之星的工程师多年来如一日给予我们有力的技术支持，是我们的两台机组安全平稳运行十多年的重要原因<small>中石化金陵石化汽机主任 朱兵</small></blockquote>
+          </div>
+          <div class="ui basic segment">
+            <blockquote>控之星的工程师多年来如一日给予我们有力的技术支持，是我们的两台机组安全平稳运行十多年的重要原因<small>中石化金陵石化汽机主任 朱兵</small></blockquote>
+          </div>
+          <div class="ui basic segment">
+            <blockquote>控之星的工程师多年来如一日给予我们有力的技术支持，是我们的两台机组安全平稳运行十多年的重要原因<small>中石化金陵石化汽机主任 朱兵</small></blockquote>
+          </div>
+        </div>
+      </div>
+      <style type="text/css">
+        .swiper-container .ui.segment {
+          border: none;
+          padding: 10px 1em 10px 1em;
+          background-color: rgba(0, 0, 0, 0.1);
+          margin-top: -2.6em;
+        }
+        .swiper-container .ui.segment a {
+          color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .swiper-container .swiper-slide-active .ui.segment {
+          background-color: rgba(0, 0, 0, 0.3);
+        }
+        .swiper-container .swiper-slide-active .ui.segment a {
+          color: #f2f2f2;
+        }
+        
+        #slides {
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+        
+        #solutions {
+          margin-bottom: 1em;
+        }
+        
+        #solutions .column .item .description,
+        #solutions .column .card .description {
+          font-size: 0.9em;
+        }
+        #solutions .column .ui.card[id="single-card"] {
+          box-shadow: none;
+          padding: 0;
+          background: none;
+        }
+        #solutions .column .ui.card[id="single-card"] .content {
+          padding: 1em 0;
+        }
+        #solutions .column .ui.card[id="single-card"] .header a {
+          color: #000;
+        }
+        #solutions .column .ui.card[id="single-card"] .header a:hover {
+          color: #1e70bf;
+        }
+        
+        #quotes .ui.basic.segment {
+          padding: 0em 1em 0 0;
+        }
+        #quotes .ui.basic.segment blockquote small {
+          padding: 0;
+        }
+        
+        #quotes .ui.button a {
+          color: #e6e6e6;
+        }
+      </style>
+    </div>
+    <div id="footer">
+      <footer class="ui inverted vertical center aligned footer segment">
+        <div class="ui container">
+          <div class="social-share" data-sites="wechat,weibo,qq,facebook,twitter,google,linkedin"></div>
+          <p>
+            © 2017 北京控之星自动化技术有限公司 京 ICP 备 11046343 号
+          </p>
+        </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/dist/swiper/js/swiper.min.js"></script>
+      <script src="/static/javascripts/growingio.js"></script>
+      <script src="/static/javascripts/ga.js"></script>
+      <script src="/static/dist/share/js/social-share.min.js"></script>
+      <script src="/static/javascripts/default.js"></script>
+    </div>
+  </body>
+</html>

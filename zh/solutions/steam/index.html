@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no" name="viewport" />
+    <meta content="北京控之星自动化技术有限公司自建立之初就定位于为能源领域的用户提供基于世界顶级产品和服务的自动化解决方案，特别是石油化工和发电领域的动力设备控制系统，范围涵盖汽轮机，燃气轮机，水轮机及压缩机，往复式内燃机的控制和保护。" name="description" />
+    <meta content="Constar, Automation, 石油, 化工, 发电" name="keywords" />
+    <meta content="Constar" name="author" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>汽轮机控制</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/swiper/css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/share/css/share.min.css" rel="stylesheet" />
+    <link href="/static/stylesheets/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheets/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
+  </head>
+  <body lang="zh">
+    <div id="content">
+      <nav class="ui borderless menu" id="topnav">
+        <div class="ui container grid">
+          <div class="row">
+            <a class="item" href="/zh/">
+              <div class="ui image">
+                <img src="/static/logo/gravatar/logo_zh.png" />
+              </div>
+            </a>
+            <div class="right menu">
+              <div class="item">
+                <a href="/zh"><i class="china flag"></i></a><a href="/en"><i class="united kingdom flag"></i></a>
+              </div>
+              <div class="item">
+                <div class="ui right icon input" id="search">
+                  <input name="search" placeholder="Search..." type="text" /><i class="search icon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script>
+        $('input[name="search"]').keydown(function(e) {
+          if (e.keyCode == 13) {
+            var input = document.querySelector('input[name="search"]');
+            window.location.href = "https://www.baidu.com/s?wd=site%3Awww.constar.com.cn%20" + input.value;
+          }
+        });
+      </script>
+      <nav class="ui borderless menu computer only sticky">
+        <div class="ui container grid">
+          <div class="row">
+            <a class="item" href="/zh" id="nav-home">主页</a>
+            <div class="ui pointing dropdown item" id="nav-intro">
+              <a href="/zh/intro">我们是谁</a><i class="down angle icon"></i>
+              <div class="menu">
+                <a class="item" href="/zh/intro/who">我们是谁</a><a class="item" href="/zh/intro/contact">联系我们</a>
+              </div>
+            </div>
+            <div class="ui pointing dropdown item" id="nav-solutions">
+              <a href="/zh/solutions">解决方案</a><i class="down angle icon"></i>
+              <div class="menu">
+                <a class="item" href="/zh/solutions/steam">汽轮机控制</a><a class="item" href="/zh/solutions/gas">燃气轮机控制</a><a class="item" href="/zh/solutions/compressor">压缩机控制及 ITCC</a><a class="item" href="/zh/solutions/ets">机组保护（ETS/ESD/SIS）</a><a class="item" href="/zh/solutions/engine">内燃机控制</a><a class="item" href="/zh/solutions/hydro">水轮机控制</a>
+              </div>
+            </div>
+            <div class="ui pointing dropdown item" id="nav-services">
+              <a href="/zh/services">工程及服务</a><i class="down angle icon"></i>
+              <div class="menu">
+                <a class="item" href="/zh/services/projects">工程项目</a><a class="item" href="/zh/services/service">技术服务</a><a class="item" href="/zh/services/consulting">技术咨询</a><a class="item" href="/zh/services/training">培训课程</a><a class="item" href="/zh/services/repair">产品维修</a><a class="item" href="/zh/services/spares">备件支持</a>
+              </div>
+            </div>
+            <div class="ui pointing dropdown item" id="nav-support">
+              <a href="/zh/support">技术支持</a><i class="down angle icon"></i>
+              <div class="menu">
+                <a class="item" href="/zh/support/doc">文档下载</a><a class="item" href="/zh/support/qa">技术问答</a><a class="item" href="http://www.controlbbs.com/" target="view_window">技术论坛</a><a class="item" href="/zh/support/contact">联系我们</a>
+              </div>
+            </div>
+            <a class="item" href="/zh/case" id="nav-case">项目案例</a><a class="item" href="http://www.controlbbs.com/" target="view_window">技术论坛</a><a class="item" href="/zh/join" id="nav-join">加入我们</a>
+          </div>
+        </div>
+      </nav>
+      <nav class="ui borderless fixed menu tablet mobile only">
+        <div class="ui container grid">
+          <div class="row">
+            <a class="item" href="/zh/">
+              <div class="ui image">
+                <img src="/static/logo/gravatar/logo_zh.png" />
+              </div>
+            </a>
+            <div class="right menu">
+              <a class="menu item">
+                <div class="ui basic icon toggle button">
+                  <i class="content icon"></i>
+                </div>
+              </a>
+            </div>
+            <div class="ui vertical accordion borderless fluid menu">
+              <a class="item" href="/">主页</a>
+              <div class="item">
+                <div class="title">
+                  我们是谁<i class="dropdown icon"></i>
+                </div>
+                <div class="content">
+                  <a class="item" href="/zh/intro/who">我们是谁</a><a class="item" href="/zh/intro/contact">联系我们</a>
+                </div>
+              </div>
+              <div class="item">
+                <div class="title">
+                  解决方案<i class="dropdown icon"></i>
+                </div>
+                <div class="content">
+                  <a class="item" href="/zh/solutions/steam">汽轮机控制</a><a class="item" href="/zh/solutions/gas">燃气轮机控制</a><a class="item" href="/zh/solutions/compressor">压缩机控制及 ITCC</a><a class="item" href="/zh/solutions/ets">机组保护 (ETS/ESD/SIS)</a><a class="item" href="/zh/solutions/engine">内燃机控制</a><a class="item" href="/zh/solutions/hydro">水轮机控制</a>
+                </div>
+              </div>
+              <div class="item">
+                <div class="title">
+                  工程及服务<i class="dropdown icon"></i>
+                </div>
+                <div class="content">
+                  <a class="item" href="/zh/services/projects">工程项目</a><a class="item" href="/zh/services/service">技术服务</a><a class="item" href="/zh/services/consulting">技术咨询</a><a class="item" href="/zh/services/training">培训课程</a><a class="item" href="/zh/services/repair">产品维修</a><a class="item" href="/zh/services/spares">备件支持</a>
+                </div>
+              </div>
+              <div class="item">
+                <div class="title">
+                  技术支持<i class="dropdown icon"></i>
+                </div>
+                <div class="content">
+                  <a class="item" href="/zh/support/doc">文档下载</a><a class="item" href="/zh/support/qa">技术问答</a><a class="item" href="http://www.controlbbs.com/">技术论坛</a><a class="item" href="/zh/support/contact">联系我们</a>
+                </div>
+              </div>
+              <a class="item" href="/zh/case">项目案例</a><a class="item" href="http://www.controlbbs.com/">技术论坛</a><a class="item" href="/zh/join">加入我们</a>
+              <div class="item">
+                <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                  <input name="q" type="hidden" value="site:http://www.constar.com.cn" />
+                  <div class="ui transparent left icon input">
+                    <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                  </div>
+                </form>
+              </div>
+              <div class="item">
+                <a href="/zh"><i class="china flag"></i></a><a href="/en"><i class="united kingdom flag"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script>
+        $(document).ready(function() {
+          // Make the text link in dropdown item itself clickable
+          $('.ui.dropdown').dropdown({
+            on: 'hover'
+          });
+        
+          $('.ui.accordion').accordion();
+        
+          // bind "hide and show vertical menu" event to top right icon button
+          $('.ui.toggle.button').click(function() {
+            $('.ui.vertical.menu').toggle("250", "linear")
+          });
+        
+          $('.ui.sticky').sticky({
+            context: '#content'
+          });
+        });
+      </script><div class="ui stackable container grid" id="article">
+        <div class="computer only row">
+          <div class="ui very padded segment article">
+            <article class="ui stackable divided grid">
+              <div class="row">
+                <div class="three wide column">
+                  <aside class="ui vertical following accordion fluid text menu">
+                    <div class="item">
+                      <div class="title">
+                        <a href="/zh" style="font-weight:normal">主页</a>
+                      </div>
+                    </div>
+                    <div class="item" id="intro">
+                      <div class="title">
+                        <a href="/zh/intro" style="font-weight:normal">我们是谁</a><i class="dropdown icon"></i>
+                      </div>
+                      <div class="content">
+                        <ul class="ui list">
+                          <li>
+                            <a href="/zh/intro/who" style="font-weight:normal">我们是谁</a>
+                          </li>
+                          <li>
+                            <a href="/zh/intro/contact" style="font-weight:normal">联系我们</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="item" id="solutions">
+                      <div class="title">
+                        <a href="/zh/solutions" style="font-weight:normal">解决方案</a><i class="dropdown icon"></i>
+                      </div>
+                      <div class="content">
+                        <ul class="ui list">
+                          <li>
+                            <a href="/zh/solutions/steam" style="font-weight:normal">汽轮机控制</a>
+                          </li>
+                          <li>
+                            <a href="/zh/solutions/gas" style="font-weight:normal">燃气轮机控制</a>
+                          </li>
+                          <li>
+                            <a href="/zh/solutions/compressor" style="font-weight:normal">压缩机控制及 ITCC</a>
+                          </li>
+                          <li>
+                            <a href="/zh/solutions/ets" style="font-weight:normal">机组保护（ETS/ESD/SIS）</a>
+                          </li>
+                          <li>
+                            <a href="/zh/solutions/engine" style="font-weight:normal">内燃机控制</a>
+                          </li>
+                          <li>
+                            <a href="/zh/solutions/hydro" style="font-weight:normal">水轮机控制</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="item" id="services">
+                      <div class="title">
+                        <a href="/zh/services" style="font-weight:normal">工程及服务</a><i class="dropdown icon"></i>
+                      </div>
+                      <div class="content">
+                        <ul class="ui list">
+                          <li>
+                            <a href="/zh/services/projects" style="font-weight:normal">工程项目</a>
+                          </li>
+                          <li>
+                            <a href="/zh/services/service" style="font-weight:normal">技术服务</a>
+                          </li>
+                          <li>
+                            <a href="/zh/services/consulting" style="font-weight:normal">技术咨询</a>
+                          </li>
+                          <li>
+                            <a href="/zh/services/training" style="font-weight:normal">培训课程</a>
+                          </li>
+                          <li>
+                            <a href="/zh/services/repair" style="font-weight:normal">产品维修</a>
+                          </li>
+                          <li>
+                            <a href="/zh/services/spares" style="font-weight:normal">备件支持</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="item" id="support">
+                      <div class="title">
+                        <a href="/zh/support" style="font-weight:normal">技术支持</a><i class="dropdown icon"></i>
+                      </div>
+                      <div class="content">
+                        <ul class="ui list">
+                          <li>
+                            <a href="/zh/support/doc" style="font-weight:normal">文档下载</a>
+                          </li>
+                          <li>
+                            <a href="/zh/support/qa" style="font-weight:normal">技术问答</a>
+                          </li>
+                          <li>
+                            <a href="http://www.controlbbs.com/" style="font-weight:normal" target="view_window">技术论坛</a>
+                          </li>
+                          <li>
+                            <a href="/zh/support/contact" style="font-weight:normal">联系我们</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="title">
+                        <a href="/zh/case" style="font-weight:normal">项目案例</a>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="title">
+                        <a href="http://www.controlbbs.com/" style="font-weight:normal" target="view_window">技术论坛</a>
+                      </div>
+                    </div>
+                    <div class="item">
+                      <div class="title">
+                        <a href="/zh/join" style="font-weight:normal">加入我们</a>
+                      </div>
+                    </div>
+                  </aside>
+                </div>
+                <div class="thirteen wide column">
+                  <div class="article-nav">
+                    <div class="ui breadcrumb"><a class="section" href="/zh">主页</a><i class="right angle icon divider"></i><a class="section" href="/zh/solutions">解决方案<i class="right angle icon divider"></i><a class="section" href="/zh/solutions/steam">汽轮机控制</a></a>
+                    </div>
+                  </div>
+                  <div class="ui divider"></div>
+                  <div class="article-body">
+                    <h3 id="汽轮机控制">汽轮机控制</h3>
+                    汽轮机（蒸汽轮机）是目前发电领域和石化行业的主要动力设备，
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/solution/steam/article_steam.jpg">
+                    <div class="ui bottom attached basic label" style="font-weight:normal">
+                    仪征化纤二号双抽机组DEH系统
+                    </div>
+                    </div>
+                    <p>机组控制系统直接关系到电力和石油化工生产的性能和可靠性。控之星自动化提供从项目咨询、方案确定、工程实施、现场服务及长期项目支持等各环节的完整汽轮机控制解决方案。</p>
+                    <p>控之星自动化在将近二十的汽轮机控制工程实践中积累了丰富的理论和实践经验。例如，热电联产机组，尤其是双抽发电汽轮机组，是机组控制的难点，但同时，这种类型的机组又往往是石油化工行业的关键动力机组。控之星自动化在吸收世界优秀热电联产机组控制理论的同时，成功地把世界上优秀的控制算法与中国汽轮机用户的实际应用结合起来，成功地应用在石化，钢铁和发电等关键领域，并成功地实施了海内外多个关键汽轮机组的控制项目，赢得汽轮机制造商和最终用户的信赖。</p>
+                    <p>控之星自动化在多年汽轮机工程实践的同时与包括哈尔滨汽轮机厂、西门子工业透平、青岛捷能汽轮机厂等多家汽轮机制造厂商保持长期的密切合作关系，这使得控之星自动化无论是在新机组还是旧机组改造项目都能把机组本身特性与优秀的控制算法结合起来，为用户提供最佳的解决方案。</p>
+                    <p>基于优秀的控制算法、丰富的工程实践和有力的长期技术支持，控之星自动化在发电、石油化工、和钢铁等领域成功地实施了多个关键汽轮机组的控制项目，赢得汽轮机制造商和最终用户的信赖。</p>
+                    <h5 id="相关服务">相关服务</h5>
+                    <p><a style="font-weight:normal" class="ui blue basic circular label" href="/zh/services/projects" > 工程项目</a> <a style="font-weight:normal" class="ui blue basic circular label" href="/zh/services/service" > 技术服务</a> <a style="font-weight:normal" class="ui blue basic circular label" href="/zh/services/consulting" > 技术咨询</a> <a style="font-weight:normal" class="ui blue basic circular label" href="/zh/services/training" > 培训课程</a> <a style="font-weight:normal" class="ui blue basic circular label" href="/zh/services/repair" > 产品维修</a> <a style="font-weight:normal" class="ui blue basic circular label" href="/zh/services/spares" > 备件支持</a></p>
+                    <h5 id="相关产品">相关产品</h5>
+                    <p><a style="font-weight:normal" class="ui blue basic circular label" href="/zh/support/doc" > Micronet </a> <a style="font-weight:normal" class="ui blue basic circular label" href="/zh/support/doc" > 505/505XT </a> <a style="font-weight:normal" class="ui blue basic circular label" href="/zh/support/doc" > VariStroke </a></p>
+                    <h5 id="相关案例">相关案例</h5>
+                    <div class="ui link cards">
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-jinling1-activator"> <img src="/static/images/zh/case/steam/jinling1.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    中石化金陵石化一号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-jinling2-activator"> <img src="/static/images/zh/case/steam/jinling2.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    中石化金陵石化二号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-yizheng3-activator"> <img src="/static/images/zh/case/steam/yizheng3.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    中石化仪征化纤三号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-tangshan2-activator"> <img src="/static/images/zh/case/steam/tangshan2.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    唐山万普二号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-haihua5-activator"> <img src="/static/images/zh/case/steam/haihua5.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    中海油海化五号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-meishan4-activator"> <img src="/static/images/zh/case/steam/meishan4.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    梅山钢铁四号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-meishan6-activator"> <img src="/static/images/zh/case/steam/meishan6.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    梅山钢铁号六号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-sinpu1-activator"> <img src="/static/images/zh/case/steam/sinpu1.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    新浦化学一号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-sinpu2-activator"> <img src="/static/images/zh/case/steam/sinpu2.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    新浦化学二号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-sinpu3-activator"> <img src="/static/images/zh/case/steam/sinpu3.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    新浦化学三号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-sinpu4-activator"> <img src="/static/images/zh/case/steam/sinpu4.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    新浦化学四号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-shijiazhuang2-activator"> <img src="/static/images/zh/case/steam/shijiazhuang2.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    石家庄炼化二号抽凝机组
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-jinling1" class="ui modal">
+                    <div class="header">
+                    金陵石化一号机组DEH改造项目
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/jinling1.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    金陵石化一号机组DEH改造项目
+                    </div>
+                    </div>
+                    <p>
+                    <p>中石化金陵石化一号机组是上个世纪安装的热电联产双抽汽轮机机组，汽轮机制造商是上海汽轮机厂，机组容量是60MW。机组最初的控制系统是机械液压调节方式, 控制精度不好、操作复杂、维护不方便。随着投运时间的增加，机械磨损和控制精度差等问题增多。</p>
+                    控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR,并采用优秀的热电牵联调节算法成功地实施了机组DEH改造，并稳定运行了十多年，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产双抽机组
+                    </li>
+                    <li>
+                    机组功率:60MW
+                    </li>
+                    <li>
+                    机组制造商:上海汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH改造
+                    </li>
+                    <li>
+                    项目日期:2002年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-jinling2" class="ui modal">
+                    <div class="header">
+                    金陵石化二号机组DEH改造项目
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/jinling2.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    金陵石化二号机组DEH改造项目
+                    </div>
+                    </div>
+                    <p>
+                    <p>中石化金陵石化二号机组是上个世纪安装的热电联产双抽汽轮机机组，汽轮机制造商是上海汽轮机厂，机组容量是60MW。机组最初的控制系统是机械液压调节方式, 控制精度不好、操作复杂、维护不方便。随着投运时间的增加，机械磨损和控制精度差等问题增多。</p>
+                    控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR,并采用优秀的热电牵联调节算法成功地实施了机组DEH改造，并稳定运行了十多年，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产双抽机组
+                    </li>
+                    <li>
+                    机组功率:60MW
+                    </li>
+                    <li>
+                    机组制造商:上海汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH改造
+                    </li>
+                    <li>
+                    项目日期:2003年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-yizheng3" class="ui modal">
+                    <div class="header">
+                    仪征化纤三号机组DEH改造项目
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/yizheng3.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    仪征化纤三号机组DEH改造项目
+                    </div>
+                    </div>
+                    <p>
+                    <p>中石化仪征化纤三号机组是上个世纪安装的热电联产双抽汽轮机机组，汽轮机制造商是上海汽轮机厂，机组容量是60MW。机组最初的控制系统是机械液压调节方式, 控制精度不好、操作复杂、维护不方便。随着投运时间的增加，机械磨损和控制精度差等问题增多。</p>
+                    控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR,并采用优秀的热电牵联调节算法成功地实施了机组DEH改造，并稳定运行了十多年，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产双抽机组
+                    </li>
+                    <li>
+                    机组功率:60MW
+                    </li>
+                    <li>
+                    机组制造商:上海汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH改造
+                    </li>
+                    <li>
+                    项目日期:2003年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-tangshan2" class="ui modal">
+                    <div class="header">
+                    唐山万普二号机组DEH系统
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/tangshan2.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    唐山万普二号机组DEH系统
+                    </div>
+                    </div>
+                    <p>
+                    唐山万普二号机组是哈尔滨汽轮机厂生产的热电联产双抽汽轮机机组，采用Woodward公司优秀的三冗余控制系统Micront TMR, 和TM25执行机构。软件采用优秀的热电牵联调节算法，机组投运后安全稳定运行了十多年，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产双抽机组
+                    </li>
+                    <li>
+                    机组功率:50MW
+                    </li>
+                    <li>
+                    机组制造商:哈尔滨汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH改造
+                    </li>
+                    <li>
+                    项目日期:1997年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-haihua5" class="ui modal">
+                    <div class="header">
+                    中海油海化五号机组DEH系统
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/haihua5.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    中海油海化五号机组DEH系统
+                    </div>
+                    </div>
+                    <p>
+                    中海油海化五号机组是北京重型电机厂生产的热电联产双抽汽轮机机组，机组容量是25MW。控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR控制系统，并采用TM-25电液转换器, 和优秀的热电牵联调节算法成功地实施了机组DEH控制系统.机组头晕后安全稳定运行了十多年，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产双抽机组
+                    </li>
+                    <li>
+                    机组功率:25MW
+                    </li>
+                    <li>
+                    机组制造商:北重
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH改造
+                    </li>
+                    <li>
+                    项目日期:2003年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-meishan4" class="ui modal">
+                    <div class="header">
+                    梅山钢铁四号机组DEH系统
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/meishan4.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    梅山钢铁四号机组DEH系统
+                    </div>
+                    </div>
+                    <p>
+                    梅山钢铁四号机组是上海汽轮机厂生产的热电联产双抽汽轮机组，调节驱动方式为高压抗燃油类型。控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR 控制系统,并采用优秀的热电牵联调节算法成功地实施了机组DEH控制。机组投运后安全稳定运行了十多年，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产双抽机组
+                    </li>
+                    <li>
+                    机组功率:60MW
+                    </li>
+                    <li>
+                    机组制造商:上海汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH改造
+                    </li>
+                    <li>
+                    项目日期:2004年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-meishan6" class="ui modal">
+                    <div class="header">
+                    梅山钢铁六号机组DEH系统
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/meishan6.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    梅山钢铁六号机组DEH系统
+                    </div>
+                    </div>
+                    <p>
+                    梅山钢铁六号机组是上海汽轮机厂生产的热电联产双抽汽轮机组，调节驱动方式为高压抗燃油类型。控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR 控制系统,并采用优秀的热电牵联调节算法成功地实施了机组DEH控制。机组投运后安全稳定运行了十多年，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产双抽机组
+                    </li>
+                    <li>
+                    机组功率:60MW
+                    </li>
+                    <li>
+                    机组制造商:上海汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH改造
+                    </li>
+                    <li>
+                    项目日期:2006年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-sinpu1" class="ui modal">
+                    <div class="header">
+                    新浦化学一号机组DEH系统
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/sinpu1.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    新浦化学一号机组DEH系统
+                    </div>
+                    </div>
+                    <p>
+                    新浦化学一号机组是上海汽轮机厂生产的热电联产双抽汽轮机组，调节驱动方式为高压抗燃油类型。控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR 控制系统,并采用优秀的热电牵联调节算法成功地实施了机组DEH控制。机组投运后安全稳定运行了十多年，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产双抽机组
+                    </li>
+                    <li>
+                    机组功率:60MW
+                    </li>
+                    <li>
+                    机组制造商:上海汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH改造
+                    </li>
+                    <li>
+                    项目日期:2005年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-sinpu2" class="ui modal">
+                    <div class="header">
+                    新浦化学二号机组DEH系统
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/sinpu2.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    新浦化学二号机组DEH系统
+                    </div>
+                    </div>
+                    <p>
+                    新浦化学二号机组是上海汽轮机厂生产的热电联产双抽汽轮机组，调节驱动方式为高压抗燃油类型。控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR 控制系统,并采用优秀的热电牵联调节算法成功地实施了机组DEH控制。机组投运后安全稳定运行了十多年，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产双抽机组
+                    </li>
+                    <li>
+                    机组功率:60MW
+                    </li>
+                    <li>
+                    机组制造商:上海汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH改造
+                    </li>
+                    <li>
+                    项目日期:2006年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-sinpu3" class="ui modal">
+                    <div class="header">
+                    新浦化学三号机组DEH系统
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/sinpu3.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    新浦化学三号机组DEH系统
+                    </div>
+                    </div>
+                    <p>
+                    新浦化学三号机组是南京汽轮机厂生产的热电联产抽背汽轮机组，调节驱动方式为高压抗燃油类型。控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR 控制系统,并采用优秀的热电牵联调节算法成功地实施了机组DEH控制。机组投运后安全稳定至今，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产抽背机组
+                    </li>
+                    <li>
+                    机组功率:50MW
+                    </li>
+                    <li>
+                    机组制造商:南京汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH系统
+                    </li>
+                    <li>
+                    项目日期:2015年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-sinpu4" class="ui modal">
+                    <div class="header">
+                    新浦化学四号机组DEH系统
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/sinpu4.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    新浦化学四号机组DEH系统
+                    </div>
+                    </div>
+                    <p>
+                    新浦化学四号机组是南京汽轮机厂生产的热电联产抽背汽轮机组，调节驱动方式为高压抗燃油类型。控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR 控制系统,并采用优秀的热电牵联调节算法成功地实施了机组DEH控制。机组投运后安全稳定至今，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产抽背机组
+                    </li>
+                    <li>
+                    机组功率:50MW
+                    </li>
+                    <li>
+                    机组制造商:南京汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH系统
+                    </li>
+                    <li>
+                    项目日期:2016年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-shijiazhuang2" class="ui modal">
+                    <div class="header">
+                    石家庄炼化二号机组DEH系统
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/shijiazhuang2.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    石家庄炼化二号机组DEH系统
+                    </div>
+                    </div>
+                    <p>
+                    石家庄炼化二号机组是南京汽轮机厂生产的热电联产抽凝汽轮机组，最初为液压调节方式。后来经过某公司的电调改造，效果并不理想。控之星于2015年采用Woodward公司的505E数字控制器,并专门设计了基于TM-25的液压调节机构，以及独立开发的人机界面软件, 功地实施了机组DEH控制。机组投运后负荷及抽汽控制都非常稳定,系统安全稳定运行至今，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产抽凝机组
+                    </li>
+                    <li>
+                    机组功率:25MW
+                    </li>
+                    <li>
+                    机组制造商:南京汽轮机厂
+                    </li>
+                    <li>
+                    控制器:505E
+                    </li>
+                    <li>
+                    项目类型:DEH系统
+                    </li>
+                    <li>
+                    项目日期:2015年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="tablet mobile only row" id="mobile-row">
+          <div class="ui very padded segment article">
+            <article class="ui stackable divided grid">
+              <div class="row">
+                <div class="column">
+                  <div class="article-nav">
+                    <div class="ui breadcrumb"><a class="section" href="/zh">主页</a><i class="right angle icon divider"></i><a class="section" href="/zh/solutions">解决方案<i class="right angle icon divider"></i><a class="active section" href="/zh/solutions/steam">汽轮机控制</a></a>
+                    </div>
+                  </div>
+                  <div class="ui divider"></div>
+                  <div class="article-body">
+                    <h3 id="汽轮机控制">汽轮机控制</h3>
+                    汽轮机（蒸汽轮机）是目前发电领域和石化行业的主要动力设备，
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/solution/steam/article_steam.jpg">
+                    <div class="ui bottom attached basic label" style="font-weight:normal">
+                    仪征化纤二号双抽机组DEH系统
+                    </div>
+                    </div>
+                    <p>机组控制系统直接关系到电力和石油化工生产的性能和可靠性。控之星自动化提供从项目咨询、方案确定、工程实施、现场服务及长期项目支持等各环节的完整汽轮机控制解决方案。</p>
+                    <p>控之星自动化在将近二十的汽轮机控制工程实践中积累了丰富的理论和实践经验。例如，热电联产机组，尤其是双抽发电汽轮机组，是机组控制的难点，但同时，这种类型的机组又往往是石油化工行业的关键动力机组。控之星自动化在吸收世界优秀热电联产机组控制理论的同时，成功地把世界上优秀的控制算法与中国汽轮机用户的实际应用结合起来，成功地应用在石化，钢铁和发电等关键领域，并成功地实施了海内外多个关键汽轮机组的控制项目，赢得汽轮机制造商和最终用户的信赖。</p>
+                    <p>控之星自动化在多年汽轮机工程实践的同时与包括哈尔滨汽轮机厂、西门子工业透平、青岛捷能汽轮机厂等多家汽轮机制造厂商保持长期的密切合作关系，这使得控之星自动化无论是在新机组还是旧机组改造项目都能把机组本身特性与优秀的控制算法结合起来，为用户提供最佳的解决方案。</p>
+                    <p>基于优秀的控制算法、丰富的工程实践和有力的长期技术支持，控之星自动化在发电、石油化工、和钢铁等领域成功地实施了多个关键汽轮机组的控制项目，赢得汽轮机制造商和最终用户的信赖。</p>
+                    <h5 id="相关服务">相关服务</h5>
+                    <p><a style="font-weight:normal" class="ui blue basic circular label" href="/zh/services/projects" > 工程项目</a> <a style="font-weight:normal" class="ui blue basic circular label" href="/zh/services/service" > 技术服务</a> <a style="font-weight:normal" class="ui blue basic circular label" href="/zh/services/consulting" > 技术咨询</a> <a style="font-weight:normal" class="ui blue basic circular label" href="/zh/services/training" > 培训课程</a> <a style="font-weight:normal" class="ui blue basic circular label" href="/zh/services/repair" > 产品维修</a> <a style="font-weight:normal" class="ui blue basic circular label" href="/zh/services/spares" > 备件支持</a></p>
+                    <h5 id="相关产品">相关产品</h5>
+                    <p><a style="font-weight:normal" class="ui blue basic circular label" href="/zh/support/doc" > Micronet </a> <a style="font-weight:normal" class="ui blue basic circular label" href="/zh/support/doc" > 505/505XT </a> <a style="font-weight:normal" class="ui blue basic circular label" href="/zh/support/doc" > VariStroke </a></p>
+                    <h5 id="相关案例">相关案例</h5>
+                    <div class="ui link cards">
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-jinling1-activator"> <img src="/static/images/zh/case/steam/jinling1.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    中石化金陵石化一号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-jinling2-activator"> <img src="/static/images/zh/case/steam/jinling2.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    中石化金陵石化二号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-yizheng3-activator"> <img src="/static/images/zh/case/steam/yizheng3.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    中石化仪征化纤三号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-tangshan2-activator"> <img src="/static/images/zh/case/steam/tangshan2.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    唐山万普二号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-haihua5-activator"> <img src="/static/images/zh/case/steam/haihua5.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    中海油海化五号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-meishan4-activator"> <img src="/static/images/zh/case/steam/meishan4.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    梅山钢铁四号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-meishan6-activator"> <img src="/static/images/zh/case/steam/meishan6.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    梅山钢铁号六号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-sinpu1-activator"> <img src="/static/images/zh/case/steam/sinpu1.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    新浦化学一号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-sinpu2-activator"> <img src="/static/images/zh/case/steam/sinpu2.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    新浦化学二号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-sinpu3-activator"> <img src="/static/images/zh/case/steam/sinpu3.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    新浦化学三号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-sinpu4-activator"> <img src="/static/images/zh/case/steam/sinpu4.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    新浦化学四号机组
+                    </div>
+                    </div>
+                    <div class="card" style="width:200px">
+                    <a class="image" id="modal-shijiazhuang2-activator"> <img src="/static/images/zh/case/steam/shijiazhuang2.jpg"> </a>
+                    <div class="ui bottom attached center aligned segment" style="font-size:10px;padding:0px">
+                    石家庄炼化二号抽凝机组
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-jinling1" class="ui modal">
+                    <div class="header">
+                    金陵石化一号机组DEH改造项目
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/jinling1.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    金陵石化一号机组DEH改造项目
+                    </div>
+                    </div>
+                    <p>
+                    <p>中石化金陵石化一号机组是上个世纪安装的热电联产双抽汽轮机机组，汽轮机制造商是上海汽轮机厂，机组容量是60MW。机组最初的控制系统是机械液压调节方式, 控制精度不好、操作复杂、维护不方便。随着投运时间的增加，机械磨损和控制精度差等问题增多。</p>
+                    控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR,并采用优秀的热电牵联调节算法成功地实施了机组DEH改造，并稳定运行了十多年，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产双抽机组
+                    </li>
+                    <li>
+                    机组功率:60MW
+                    </li>
+                    <li>
+                    机组制造商:上海汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH改造
+                    </li>
+                    <li>
+                    项目日期:2002年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-jinling2" class="ui modal">
+                    <div class="header">
+                    金陵石化二号机组DEH改造项目
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/jinling2.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    金陵石化二号机组DEH改造项目
+                    </div>
+                    </div>
+                    <p>
+                    <p>中石化金陵石化二号机组是上个世纪安装的热电联产双抽汽轮机机组，汽轮机制造商是上海汽轮机厂，机组容量是60MW。机组最初的控制系统是机械液压调节方式, 控制精度不好、操作复杂、维护不方便。随着投运时间的增加，机械磨损和控制精度差等问题增多。</p>
+                    控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR,并采用优秀的热电牵联调节算法成功地实施了机组DEH改造，并稳定运行了十多年，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产双抽机组
+                    </li>
+                    <li>
+                    机组功率:60MW
+                    </li>
+                    <li>
+                    机组制造商:上海汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH改造
+                    </li>
+                    <li>
+                    项目日期:2003年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-yizheng3" class="ui modal">
+                    <div class="header">
+                    仪征化纤三号机组DEH改造项目
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/yizheng3.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    仪征化纤三号机组DEH改造项目
+                    </div>
+                    </div>
+                    <p>
+                    <p>中石化仪征化纤三号机组是上个世纪安装的热电联产双抽汽轮机机组，汽轮机制造商是上海汽轮机厂，机组容量是60MW。机组最初的控制系统是机械液压调节方式, 控制精度不好、操作复杂、维护不方便。随着投运时间的增加，机械磨损和控制精度差等问题增多。</p>
+                    控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR,并采用优秀的热电牵联调节算法成功地实施了机组DEH改造，并稳定运行了十多年，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产双抽机组
+                    </li>
+                    <li>
+                    机组功率:60MW
+                    </li>
+                    <li>
+                    机组制造商:上海汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH改造
+                    </li>
+                    <li>
+                    项目日期:2003年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-tangshan2" class="ui modal">
+                    <div class="header">
+                    唐山万普二号机组DEH系统
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/tangshan2.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    唐山万普二号机组DEH系统
+                    </div>
+                    </div>
+                    <p>
+                    唐山万普二号机组是哈尔滨汽轮机厂生产的热电联产双抽汽轮机机组，采用Woodward公司优秀的三冗余控制系统Micront TMR, 和TM25执行机构。软件采用优秀的热电牵联调节算法，机组投运后安全稳定运行了十多年，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产双抽机组
+                    </li>
+                    <li>
+                    机组功率:50MW
+                    </li>
+                    <li>
+                    机组制造商:哈尔滨汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH改造
+                    </li>
+                    <li>
+                    项目日期:1997年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-haihua5" class="ui modal">
+                    <div class="header">
+                    中海油海化五号机组DEH系统
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/haihua5.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    中海油海化五号机组DEH系统
+                    </div>
+                    </div>
+                    <p>
+                    中海油海化五号机组是北京重型电机厂生产的热电联产双抽汽轮机机组，机组容量是25MW。控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR控制系统，并采用TM-25电液转换器, 和优秀的热电牵联调节算法成功地实施了机组DEH控制系统.机组头晕后安全稳定运行了十多年，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产双抽机组
+                    </li>
+                    <li>
+                    机组功率:25MW
+                    </li>
+                    <li>
+                    机组制造商:北重
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH改造
+                    </li>
+                    <li>
+                    项目日期:2003年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-meishan4" class="ui modal">
+                    <div class="header">
+                    梅山钢铁四号机组DEH系统
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/meishan4.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    梅山钢铁四号机组DEH系统
+                    </div>
+                    </div>
+                    <p>
+                    梅山钢铁四号机组是上海汽轮机厂生产的热电联产双抽汽轮机组，调节驱动方式为高压抗燃油类型。控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR 控制系统,并采用优秀的热电牵联调节算法成功地实施了机组DEH控制。机组投运后安全稳定运行了十多年，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产双抽机组
+                    </li>
+                    <li>
+                    机组功率:60MW
+                    </li>
+                    <li>
+                    机组制造商:上海汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH改造
+                    </li>
+                    <li>
+                    项目日期:2004年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-meishan6" class="ui modal">
+                    <div class="header">
+                    梅山钢铁六号机组DEH系统
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/meishan6.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    梅山钢铁六号机组DEH系统
+                    </div>
+                    </div>
+                    <p>
+                    梅山钢铁六号机组是上海汽轮机厂生产的热电联产双抽汽轮机组，调节驱动方式为高压抗燃油类型。控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR 控制系统,并采用优秀的热电牵联调节算法成功地实施了机组DEH控制。机组投运后安全稳定运行了十多年，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产双抽机组
+                    </li>
+                    <li>
+                    机组功率:60MW
+                    </li>
+                    <li>
+                    机组制造商:上海汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH改造
+                    </li>
+                    <li>
+                    项目日期:2006年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-sinpu1" class="ui modal">
+                    <div class="header">
+                    新浦化学一号机组DEH系统
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/sinpu1.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    新浦化学一号机组DEH系统
+                    </div>
+                    </div>
+                    <p>
+                    新浦化学一号机组是上海汽轮机厂生产的热电联产双抽汽轮机组，调节驱动方式为高压抗燃油类型。控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR 控制系统,并采用优秀的热电牵联调节算法成功地实施了机组DEH控制。机组投运后安全稳定运行了十多年，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产双抽机组
+                    </li>
+                    <li>
+                    机组功率:60MW
+                    </li>
+                    <li>
+                    机组制造商:上海汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH改造
+                    </li>
+                    <li>
+                    项目日期:2005年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-sinpu2" class="ui modal">
+                    <div class="header">
+                    新浦化学二号机组DEH系统
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/sinpu2.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    新浦化学二号机组DEH系统
+                    </div>
+                    </div>
+                    <p>
+                    新浦化学二号机组是上海汽轮机厂生产的热电联产双抽汽轮机组，调节驱动方式为高压抗燃油类型。控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR 控制系统,并采用优秀的热电牵联调节算法成功地实施了机组DEH控制。机组投运后安全稳定运行了十多年，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产双抽机组
+                    </li>
+                    <li>
+                    机组功率:60MW
+                    </li>
+                    <li>
+                    机组制造商:上海汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH改造
+                    </li>
+                    <li>
+                    项目日期:2006年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-sinpu3" class="ui modal">
+                    <div class="header">
+                    新浦化学三号机组DEH系统
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/sinpu3.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    新浦化学三号机组DEH系统
+                    </div>
+                    </div>
+                    <p>
+                    新浦化学三号机组是南京汽轮机厂生产的热电联产抽背汽轮机组，调节驱动方式为高压抗燃油类型。控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR 控制系统,并采用优秀的热电牵联调节算法成功地实施了机组DEH控制。机组投运后安全稳定至今，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产抽背机组
+                    </li>
+                    <li>
+                    机组功率:50MW
+                    </li>
+                    <li>
+                    机组制造商:南京汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH系统
+                    </li>
+                    <li>
+                    项目日期:2015年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-sinpu4" class="ui modal">
+                    <div class="header">
+                    新浦化学四号机组DEH系统
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/sinpu4.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    新浦化学四号机组DEH系统
+                    </div>
+                    </div>
+                    <p>
+                    新浦化学四号机组是南京汽轮机厂生产的热电联产抽背汽轮机组，调节驱动方式为高压抗燃油类型。控之星自动化采用Woodward公司优秀的三冗余控制系统Micront TMR 控制系统,并采用优秀的热电牵联调节算法成功地实施了机组DEH控制。机组投运后安全稳定至今，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产抽背机组
+                    </li>
+                    <li>
+                    机组功率:50MW
+                    </li>
+                    <li>
+                    机组制造商:南京汽轮机厂
+                    </li>
+                    <li>
+                    控制器:Micronet TMR
+                    </li>
+                    <li>
+                    项目类型:DEH系统
+                    </li>
+                    <li>
+                    项目日期:2016年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    <div id="modal-shijiazhuang2" class="ui modal">
+                    <div class="header">
+                    石家庄炼化二号机组DEH系统
+                    </div>
+                    <div class="image content">
+                    <div class="ui container">
+                    <div class="description">
+                    <div class="ui medium right floated spaced image">
+                    <img src="/static/images/zh/case/steam/shijiazhuang2.jpg">
+                    <div class="ui bottom attached grey label" style="font-weight:normal" align="center">
+                    石家庄炼化二号机组DEH系统
+                    </div>
+                    </div>
+                    <p>
+                    石家庄炼化二号机组是南京汽轮机厂生产的热电联产抽凝汽轮机组，最初为液压调节方式。后来经过某公司的电调改造，效果并不理想。控之星于2015年采用Woodward公司的505E数字控制器,并专门设计了基于TM-25的液压调节机构，以及独立开发的人机界面软件, 功地实施了机组DEH控制。机组投运后负荷及抽汽控制都非常稳定,系统安全稳定运行至今，充分证明了控之星的汽轮机控制算法的优秀性和强大的工程能力。
+                    </p>
+                    <ul class="ui list">
+                    <li>
+                    机组类型:热电联产抽凝机组
+                    </li>
+                    <li>
+                    机组功率:25MW
+                    </li>
+                    <li>
+                    机组制造商:南京汽轮机厂
+                    </li>
+                    <li>
+                    控制器:505E
+                    </li>
+                    <li>
+                    项目类型:DEH系统
+                    </li>
+                    <li>
+                    项目日期:2015年
+                    </li>
+                    </ul>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="actions">
+                    <div class="ui blue deny button" style="font-weight:normal">
+                    关闭窗口
+                    </div>
+                    <div class="ui blue primary button">
+                    <a style="font-weight:normal;color:white" href="../support/contact/">联系我们</a>
+                    </div>
+                    </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+      <style type="text/css">
+        .ui.accordion.vertical.menu a {
+          color: #000;
+        }
+        
+        .ui.accordion.vertical.menu a:hover {
+          color: #262626;
+          font-weight: 500;
+        }
+        
+        .ui.accordion.vertical.menu a.active {
+          color: #4183c4;
+          font-weight: 700;
+        }
+        
+        #mobile-row {
+          margin-top: 2.5em;
+        }
+        
+        .ui.breadcrumb {
+          font-size: 0.9rem;
+        }
+      </style>
+      <script>
+        // Get the URL and directory of current page
+        var url = window.location.pathname;
+        var directory = url.split('/')[2];
+        
+        // Activate corresponding accordion item content according to the directory
+        var target = $('#' + directory).find('.content');
+        target.addClass('active');
+        
+        // Remove the last '/' in the URL
+        url = url.replace(/\/$/, '');
+        
+        // Activate corresponding link according to the URL
+        var link = 'a[href="' + url + '"]';
+        $(link).not('.section').addClass('active');
+        
+        // Change background of navbar menu's corresponding item
+        var navId = '#nav-' + directory;
+        var navItem = $(navId);
+        navItem.css('background', 'rgba(0,0,0,0.06)');
+      </script>
+    </div>
+    <div id="footer">
+      <footer class="ui inverted vertical center aligned footer segment">
+        <div class="ui container">
+          <div class="social-share" data-sites="wechat,weibo,qq,facebook,twitter,google,linkedin"></div>
+          <p>
+            © 2017 北京控之星自动化技术有限公司 京 ICP 备 11046343 号
+          </p>
+        </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/dist/swiper/js/swiper.min.js"></script>
+      <script src="/static/javascripts/growingio.js"></script>
+      <script src="/static/javascripts/ga.js"></script>
+      <script src="/static/dist/share/js/social-share.min.js"></script>
+      <script src="/static/javascripts/default.js"></script>
+    </div>
+  </body>
+</html>

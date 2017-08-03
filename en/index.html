@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no" name="viewport" />
+    <meta content="北京控之星自动化技术有限公司自建立之初就定位于为能源领域的用户提供基于世界顶级产品和服务的自动化解决方案，特别是石油化工和发电领域的动力设备控制系统，范围涵盖汽轮机，燃气轮机，水轮机及压缩机，往复式内燃机的控制和保护。" name="description" />
+    <meta content="Constar, Automation, 石油, 化工, 发电" name="keywords" />
+    <meta content="Constar" name="author" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+    <link href="/manifest.json" rel="manifest" />
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon" />
+    <meta content="#ffffff" name="theme-color" />
+    <title>北京控之星自动化技术有限公司</title>
+    <link href="/static/dist/semantic-ui/semantic.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/swiper/css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/fonts.css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dist/share/css/share.min.css" rel="stylesheet" />
+    <link href="/static/stylesheets/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/stylesheets/pandoc-code-highlight.css" rel="stylesheet" type="text/css" />
+    <script src="/static/dist/jquery/jquery.min.js"></script>
+  </head>
+  <body lang="en">
+    <div id="content">
+      <nav class="ui borderless menu" id="topnav">
+        <div class="ui container grid">
+          <div class="row">
+            <a class="item" href="/en/">
+              <div class="ui image">
+                <img src="/static/logo/gravatar/logo_en.png" />
+              </div>
+            </a>
+            <div class="right menu">
+              <div class="item">
+                <a href="/zh"><i class="china flag"></i></a><a href="/en"><i class="united kingdom flag"></i></a>
+              </div>
+              <div class="item">
+                <form action="https://www.google.com/search" class="ui form" method="get">
+                  <input name="q" type="hidden" value="site:http://www.constar.com.cn" />
+                  <div class="ui right icon input">
+                    <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <nav class="ui borderless menu computer only sticky">
+        <div class="ui container grid">
+          <div class="row">
+            <a class="item" href="/en" id="nav-home">Home</a>
+            <div class="ui pointing dropdown item" id="nav-intro">
+              <a href="/en/intro">About Us</a><i class="down angle icon"></i>
+              <div class="menu">
+                <a class="item" href="/en/intro/who">About Us</a><a class="item" href="/en/intro/contact">Contact Us</a>
+              </div>
+            </div>
+            <div class="ui pointing dropdown item" id="nav-solutions">
+              <a href="/en/solutions">Solution</a><i class="down angle icon"></i>
+              <div class="menu">
+                <a class="item" href="/en/solutions/steam">Steam Turbine Control</a><a class="item" href="/en/solutions/gas">Gas Turbine Control</a><a class="item" href="/en/solutions/compressor">Compressor Control & ITCC</a><a class="item" href="/en/solutions/ets">Turbine Protection (ETS/ESD/SIS)</a><a class="item" href="/en/solutions/engine">Engine Control</a><a class="item" href="/en/solutions/hydro">Hydro Turbine Control</a>
+              </div>
+            </div>
+            <div class="ui pointing dropdown item" id="nav-services">
+              <a href="/en/services">Service</a><i class="down angle icon"></i>
+              <div class="menu">
+                <a class="item" href="/en/services/projects">Projects</a><a class="item" href="/en/services/service">Service</a><a class="item" href="/en/services/consulting">Consulting</a><a class="item" href="/en/services/training">Training</a><a class="item" href="/en/services/repair">Product Repair</a>
+              </div>
+            </div>
+            <a class="item" href="/en/case" id="nav-case">Case Study</a><a class="item" href="/en/business" id="nav-business">Business Partner</a><a class="item" href="/en/contact" id="nav-contact">Contact</a>
+          </div>
+        </div>
+      </nav>
+      <nav class="ui borderless fixed menu tablet mobile only">
+        <div class="ui container grid">
+          <div class="row">
+            <a class="item" href="/en/">
+              <div class="ui image">
+                <img src="/static/logo/gravatar/logo_en.png" />
+              </div>
+            </a>
+            <div class="right menu">
+              <a class="menu item">
+                <div class="ui basic icon toggle button">
+                  <i class="content icon"></i>
+                </div>
+              </a>
+            </div>
+            <div class="ui vertical accordion borderless fluid menu">
+              <a class="item" href="/en">Home</a>
+              <div class="item">
+                <div class="title">
+                  About Us<i class="dropdown icon"></i>
+                </div>
+                <div class="content">
+                  <a class="item" href="/en/intro/who">About Us</a><a class="item" href="/en/intro/contact">Contact Us</a>
+                </div>
+              </div>
+              <div class="item">
+                <div class="title">
+                  Solution<i class="dropdown icon"></i>
+                </div>
+                <div class="content">
+                  <a class="item" href="/en/solutions/steam">Steam Turbine Control</a><a class="item" href="/en/solutions/gas">Gas Turbine Control</a><a class="item" href="/en/solutions/compressor">Compressor Control & ITCC</a><a class="item" href="/en/solutions/ets">Turbine Protection (ETS/ESD/SIS)</a><a class="item" href="/en/solutions/engine">Engine Control</a><a class="item" href="/en/solutions/hydro">Hydro Turbine Control</a>
+                </div>
+              </div>
+              <div class="item">
+                <div class="title">
+                  Service<i class="dropdown icon"></i>
+                </div>
+                <div class="content">
+                  <a class="item" href="/en/services/projects">Projects</a><a class="item" href="/en/services/service">Service</a><a class="item" href="/en/services/consulting">Consulting</a><a class="item" href="/en/services/training">Training</a><a class="item" href="/en/services/repair">Product Repair</a>
+                </div>
+              </div>
+              <a class="item" href="/en/case">Case Study</a><a class="item" href="/en/business">Business Partner</a><a class="item" href="/en/contact">Contact</a>
+              <div class="item">
+                <form action="https://www.google.com/search" class="ui form" method="get" target="_blank">
+                  <input name="q" type="hidden" value="site:http://www.constar.com.cn" />
+                  <div class="ui transparent left icon input">
+                    <input name="q" placeholder="Search..." type="text" /><i class="search icon"></i>
+                  </div>
+                </form>
+              </div>
+              <div class="item">
+                <a href="/zh"><i class="china flag"></i></a><a href="/en"><i class="united kingdom flag"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <script>
+        $(document).ready(function() {
+          // Make the text link in dropdown item itself clickable
+          $('.ui.dropdown').dropdown({
+            on: 'hover'
+          });
+        
+          $('.ui.accordion').accordion();
+        
+          // bind "hide and show vertical menu" event to top right icon button
+          $('.ui.toggle.button').click(function() {
+            $('.ui.vertical.menu').toggle("250", "linear")
+          });
+        
+          $('.ui.sticky').sticky({
+            context: '#content'
+          });
+        });
+      </script><div class="ui stackable container grid" id="first-row">
+        <div class="row">
+          <div class="eleven wide column">
+            <div class="ui vertical center aligned stripe alternative segment" id="slides">
+              <div class="ui container">
+                <div class="swiper-container">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="ui fluid image">
+                        <img src="/static/images/en/slides/1.jpg" />
+                        <div class="ui bottom attached inverted segment">
+                          <a href="/en/case">SINOPEC Yizheng Unit4 Steam Turbine Control</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="ui fluid image">
+                        <img src="/static/images/en/slides/2.jpg" />
+                        <div class="ui bottom attached inverted segment">
+                          <a href="/en/case">An Steel Unit 15 Turbine & Blower Control System</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="ui fluid image">
+                        <img src="/static/images/en/slides/3.jpg" />
+                        <div class="ui bottom attached inverted segment">
+                          <a href="/en/case">Sinpo Chemical Unit3 CO-Generation Turbine Control System</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="ui fluid image">
+                        <img src="/static/images/en/slides/4.jpg" />
+                        <div class="ui bottom attached inverted segment">
+                          <a href="/en/case">CNOOC Hainan Micronet/ITCC Maintenance</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-button-prev swiper-button-white"></div>
+                  <div class="swiper-button-next swiper-button-white"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="five wide column" id="home-images">
+            <div class="ui container grid">
+              <div class="two column row">
+                <div class="column">
+                  <div class="ui small fluid image" href="/en/services/consulting">
+                    <div class="ui dimmer">
+                      <div class="content">
+                        <div class="center">
+                          <label class="ui blue circular medium label"><a href="/en/services/consulting">Consulting</a></label>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="/static/images/en/homepage/consulting.png" />
+                  </div>
+                  <div class="ui bottom attached mini button">
+                    <a href="/en/services/consulting">Consulting</a>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui small fluid image" href="/en/services/repair">
+                    <div class="ui dimmer">
+                      <div class="content">
+                        <div class="center">
+                          <label class="ui blue circular medium label"><a href="/en/services/repair">Repair</a></label>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="/static/images/en/homepage/repair.png" />
+                  </div>
+                  <div class="ui bottom attached mini button">
+                    <a href="/en/services/repair">Repair</a>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="column">
+                  <div class="ui medium fluid image" href="/en/services/training">
+                    <div class="ui dimmer">
+                      <div class="content">
+                        <div class="center">
+                          <label class="ui blue circular medium label"><a href="/en/services/training">Training</a></label>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="/static/images/en/homepage/training.png" />
+                  </div>
+                  <div class="ui bottom attached mini button">
+                    <a href="/en/services/training">Training</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui stackable container grid" id="solutions">
+        <div class="eleven wide column">
+          <div class="ui stackable grid">
+            <div class="row">
+              <div class="column">
+                <a class="item" href="/en/solutions">
+                  <h3 class="ui dividing header">
+                    Solution
+                  </h3>
+                </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="six wide column">
+                <div class="ui fluid card" id="single-card">
+                  <div class="ui image" href="/en/solutions/steam">
+                    <div class="ui dimmer">
+                      <div class="content">
+                        <div class="center">
+                          <label class="ui blue circular label"><a href="/en/solutions/steam" style="font-weight:normal">Steam Turbine Control</a></label>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="/static/images/en/solution/steam/homepage_steam.jpg" />
+                  </div>
+                  <div class="content">
+                    <h5 class="ui header">
+                      <a href="/en/solutions/steam">Steam Turbine Control</a>
+                    </h5>
+                    <div class="description">
+                      Steam Turbine, bla blabla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla  ....<a href="/en/solutions/steam"><i class="right floated right angle double blue icon"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ten wide column">
+                <div class="ui link items">
+                  <div class="item">
+                    <div class="ui image">
+                      <div class="ui dimmer">
+                        <div class="content">
+                          <div class="center">
+                            <label class="ui blue circular label"><a href="/en/solutions/gas" style="font-weight:normal">Gas Turbine Control</a></label>
+                          </div>
+                        </div>
+                      </div>
+                      <img src="/static/images/en/solution/gas/homepage_gas.png" />
+                    </div>
+                    <a class="content" href="/en/solutions/gas">
+                      <h5 class="ui header">
+                        Gas Turbine Control
+                      </h5>
+                      <div class="description">
+                        Gas Turbine controlGas Turbine controlGas Turbine controlGas Turbine controlGas Turbine control<i class="right floated right angle double blue icon"></i>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <div class="ui image">
+                      <div class="ui dimmer">
+                        <div class="content">
+                          <div class="center">
+                            <label class="ui blue circular label"><a href="/en/solutions/compressor" style="font-weight:normal">Compressor & ITCC</a></label>
+                          </div>
+                        </div>
+                      </div>
+                      <img src="/static/images/en/solution/compressor/homepage_compressor.jpg" />
+                    </div>
+                    <a class="content" href="/en/solutions/compressor">
+                      <h5 class="ui header">
+                        Compressor & ITCC
+                      </h5>
+                      <div class="description">
+                        Compressor and ITCC Compressor and ITCC Compressor and ITCC Compressor and ITCC <i class="right floated right angle double blue icon"></i>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="item">
+                    <div class="ui image">
+                      <div class="ui dimmer">
+                        <div class="content">
+                          <div class="center">
+                            <label class="ui blue circular label"><a href="/en/solutions/ets" style="font-weight:normal">Turbine Protection</a></label>
+                          </div>
+                        </div>
+                      </div>
+                      <img src="/static/images/en/solution/protection/homepage_protection.jpg" />
+                    </div>
+                    <a class="content" href="/en/solutions/ets">
+                      <h5 class="ui header">
+                        Turbine Protection（ETS/ESD/SIS）
+                      </h5>
+                      <div class="description">
+                        Turbine ProtectionjTurbine ProtectionjTurbine Protectionj<i class="right floated right angle double blue icon"></i>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="three column row" id="cards">
+              <div class="column">
+                <div class="ui link doubling fluid card">
+                  <div class="ui item">
+                    <div class="content">
+                      <h3 class="ui dividing header">
+                        Project & Service 
+                      </h3>
+                      <div class="ui image">
+                        <div class="ui dimmer">
+                          <div class="content">
+                            <div class="center">
+                              <label class="ui blue circular label"><a href="/en/services" style="font-weight:normal">Project & Service</a></label>
+                            </div>
+                          </div>
+                        </div>
+                        <img src="/static/images/en/project_service/service/profile/shijiazhuang_unit1.JPG" />
+                      </div>
+                    </div>
+                    <a class="description" href="/en/services">Serivice Serivice Serivice Serivice Serivice Serivice Serivice<i class="right floated right angle double blue icon"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="ui link doubling fluid card">
+                  <div class="ui item">
+                    <div class="content">
+                      <h3 class="ui dividing header">
+                        Case Study
+                      </h3>
+                      <div class="ui image" href="/en/case">
+                        <div class="ui dimmer">
+                          <div class="content">
+                            <div class="center">
+                              <label class="ui blue circular label"><a href="/en/case" style="font-weight:normal">Case Study</a></label>
+                            </div>
+                          </div>
+                        </div>
+                        <img src="/static/images/zh/project_service/service/profile/xinpu_unit3_test.jpg" />
+                      </div>
+                    </div>
+                    <a class="description" href="/zh/case">Cases Cases Cases Cases Cases Cases Cases Cases Cases Cases <i class="right floated right angle double blue icon"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="ui link card">
+                  <div class="ui item" id="test-item">
+                    <div class="content">
+                      <h3 class="ui dividing header">
+                        Support
+                      </h3>
+                      <div class="ui image" href="/en/support">
+                        <div class="ui dimmer">
+                          <div class="content">
+                            <div class="center">
+                              <label class="ui blue circular label"><a href="/en/support" style="font-weight:normal">Support</a></label>
+                            </div>
+                          </div>
+                        </div>
+                        <img src="/static/images/en/project_service/service/profile/xinpu_unit3.jpg" />
+                      </div>
+                    </div>
+                    <a class="description" href="/en/support">Support Support Support llSupport Support Support Support Support<i class="right floated right angle double blue icon"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="five wide column" id="quotes">
+          <div class="ui bordered image" href="/en/support/doc">
+            <div class="ui dimmer">
+              <div class="content">
+                <div class="center">
+                  <label class="ui blue circular medium label"><a href="/en/support/doc" style="font-weight:normal">Documentation</a></label>
+                </div>
+              </div>
+            </div>
+            <img src="/static/images/en/homepage/doc.png" />
+          </div>
+          <h3 class="ui dividing header">
+            Testimonials
+          </h3>
+          <div class="ui basic segment">
+            <blockquote>控之星的工程师多年来如一日给予我们有力的技术支持，是我们的两台机组安全平稳运行十多年的重要原因<small>中石化金陵石化汽机主任 朱兵</small></blockquote>
+          </div>
+          <div class="ui basic segment">
+            <blockquote>控之星的工程师多年来如一日给予我们有力的技术支持，是我们的两台机组安全平稳运行十多年的重要原因<small>中石化金陵石化汽机主任 朱兵</small></blockquote>
+          </div>
+          <div class="ui basic segment">
+            <blockquote>控之星的工程师多年来如一日给予我们有力的技术支持，是我们的两台机组安全平稳运行十多年的重要原因<small>中石化金陵石化汽机主任 朱兵</small></blockquote>
+          </div>
+          <div class="ui basic segment">
+            <blockquote>控之星的工程师多年来如一日给予我们有力的技术支持，是我们的两台机组安全平稳运行十多年的重要原因<small>中石化金陵石化汽机主任 朱兵</small></blockquote>
+          </div>
+        </div>
+      </div>
+      <style type="text/css">
+        .swiper-container .ui.segment {
+          border: none;
+          padding: 10px 1em 10px 1em;
+          background-color: rgba(0, 0, 0, 0.1);
+          margin-top: -2.6em;
+        }
+        .swiper-container .ui.segment a {
+          color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .swiper-container .swiper-slide-active .ui.segment {
+          background-color: rgba(0, 0, 0, 0.3);
+        }
+        .swiper-container .swiper-slide-active .ui.segment a {
+          color: #f2f2f2;
+        }
+        
+        #slides {
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+        
+        #solutions {
+          margin-bottom: 1em;
+        }
+        
+        #solutions .column .item .description,
+        #solutions .column .card .description {
+          font-size: 0.9em;
+        }
+        #solutions .column .ui.card[id="single-card"] {
+          box-shadow: none;
+          padding: 0;
+          background: none;
+        }
+        #solutions .column .ui.card[id="single-card"] .content {
+          padding: 1em 0;
+        }
+        #solutions .column .ui.card[id="single-card"] .header a {
+          color: #000;
+        }
+        #solutions .column .ui.card[id="single-card"] .header a:hover {
+          color: #1e70bf;
+        }
+        
+        #quotes .ui.basic.segment {
+          padding: 0em 1em 0 0;
+        }
+        #quotes .ui.basic.segment blockquote small {
+          padding: 0;
+        }
+        
+        #quotes .ui.button a {
+          color: #e6e6e6;
+        }
+      </style>
+    </div>
+    <div id="footer">
+      <footer class="ui inverted vertical center aligned footer segment">
+        <div class="ui container">
+          <div class="social-share" data-sites="facebook,twitter,google,linkedin,wechat,weibo,qq"></div>
+          <p>
+            © 2017 Constar Automation Technology Co., Ltd. <a ref="http//:www.constar.com" style="color:white"> www.constar.com </a>
+          </p>
+        </div>
+      </footer>
+      <script src="/static/dist/semantic-ui/semantic.min.js"></script>
+      <script src="/static/dist/swiper/js/swiper.min.js"></script>
+      <script src="/static/javascripts/growingio.js"></script>
+      <script src="/static/javascripts/ga.js"></script>
+      <script src="/static/javascripts/default.js"></script>
+      <script src="/static/dist/share/js/social-share.min.js"></script>
+    </div>
+  </body>
+</html>
